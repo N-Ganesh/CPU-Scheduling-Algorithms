@@ -74,7 +74,7 @@ tat[i] = comp[i]; // Turn Around Time = CT - AT and AT is 0 for all Processes
 for(i=0;i<n;i++)
 waiting[i] = tat[i] - burst[i];
 cout<<endl;
-cout<<"Process ID\tBurst Time\tCompletion Time \t\tTurn Around Time \t Waiting Time "<<endl<<endl;
+cout<<"Process ID\tBurst Time\tCompletion Time \tTurn Around Time \t Waiting Time "<<endl<<endl;
 for(int i=0;i<n;i++)
 cout<<p[i]<<"\t\t\t"<<burst[i]<<"\t\t\t"<<comp[i]<<"\t\t\t"<<tat[i]<<"\t\t\t"<<waiting[i]<<endl<<endl;
 cout<<endl;
@@ -96,7 +96,30 @@ int val;
 for(i=0;i<=sum;i++)
 {
 if(i==0)
-cout<<0<<"__";
+cout<<"__";
+else
+{
+for(int j=0;j<n;j++)
+{
+if(comp[j] == i)
+{
+val = j;
+break;
+}
+else
+val = -1;
+}
+if(val == -1)
+cout<<"__";
+else
+cout<<"P"<<val;
+}
+}
+cout<<endl;
+for(i=0;i<=sum;i++)
+{
+if(i==0)
+cout<<0<<"  ";
 else
 {
 for(int j=0;j<n;j++)
@@ -110,7 +133,7 @@ else
 val = -1;
 }
 if(val == -1)
-cout<<"__";
+cout<<"  ";
 else
 cout<<val;
 }
@@ -128,5 +151,4 @@ string to_string(string s,int t) //Index type conversion from int to string
 stringstream ss;
 ss<<s<<t;
 return ss.str();
-
 }
